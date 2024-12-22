@@ -1,0 +1,74 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+
+/*
+
+0 - 600px : Phone;
+600 - 900px : Tablet Portrait;
+900 - 1200px : Tablet Landscape;
+1800+ : Big Desktop;
+
+$breakpoint arguments choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+
+*/
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == tab-port) {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == tab-land) {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if ($breakpoint == big-desktop) {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+/*
+
+Results-driven MERN stack developer with a passion for creating efficient, scalable, 
+and user-friendly web applications. Proficient in building full-stack solutions using MongoDB, 
+Express.js, React.js, and Node.js. Skilled in crafting responsive and intuitive user interfaces, 
+leveraging front-end technologies like HTML, CSS, and JavaScript. Experienced in designing and 
+implementing RESTful APIs, integrating third-party APIs, and optimizing server-side performance. 
+Strong problem-solving abilities and a keen eye for detail, ensuring the delivery of high-quality 
+code. A collaborative team player with excellent communication skills, committed to delivering 
+projects on time and within budget. Seeking opportunities to contribute my expertise and drive 
+innovation in a dynamic and challenging development environment.
+
+
+*/
